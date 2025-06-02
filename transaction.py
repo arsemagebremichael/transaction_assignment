@@ -19,8 +19,6 @@ class Account:
         self.__is_frozen = False
         self.__closed_account = False
         self.__min_balance = 50
-
-    @property
     def account_number(self):
         return self.__account_number
 
@@ -49,7 +47,7 @@ class Account:
         if self.__is_frozen or self.__closed_account:
             return "Account is frozen or closed. You can not withdraw."
         balance = self.get_balance()
-        if isinstance(balance, str):  # Handles if get_balance returns a string error
+        if isinstance(balance, str): 
             return balance
         if balance - amount < self.__min_balance:
             return f"Sorry, you need a minimum of {self.__min_balance} birr in your account."
